@@ -1,3 +1,4 @@
+-- Passo 1
 CREATE DATABASE `Bancophp`;
 
 USE `Bancophp`;
@@ -28,8 +29,11 @@ CREATE TABLE `transacoes` (
   FOREIGN KEY (`id_usuario_destino`) REFERENCES `usuarios`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `usuarios` (`email`, `senha`, `tipo_usuario`) VALUES
-('admin@banco.com', '$2y$10$E/gP4.L2deX.yoGqB.dGg./vYy7deYn8A1xwdwK9Gwg3v0y6JvUq.', 'admin');
+-- Passo 2
+-- Tornar usuário admin
+-- admin@gmail.com
+-- 123456
 
-INSERT INTO `contas` (`id_usuario`, `saldo`) VALUES
-(LAST_INSERT_ID(), 1000000.00);
+UPDATE usuarios 
+SET tipo_usuario = 'admin' 
+WHERE email = 'admin@gmail.com';
